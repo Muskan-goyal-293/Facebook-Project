@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+html {
+  font-family: system-ui;
+  background: linear-gradient(
+    to right bottom,
+    rgb(74, 74, 249),
+    rgb(29, 171, 248),
+    rgb(178, 50, 237),
+    rgb(252, 75, 252)
+  );
+}
+button:active {
+  scale: 0.9;
+}
+.link {
+  text-decoration: none;
+}
+.error {
+  color: rgb(150, 3, 3);
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+.result {
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  color: rgb(2, 2, 197);
+}

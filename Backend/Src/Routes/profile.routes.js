@@ -9,7 +9,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 //  export module
 module.exports = profileRout;
 
-// api => http://localhost:3000/api/crete-profile
+// api => http://localhost:3000/api/create-profile
 profileRout.post(
   "/create-profile",
   verifyUser,

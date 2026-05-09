@@ -1,0 +1,39 @@
+main{
+ height: 100%;
+ width: 100%;
+    .profileFormWrapper{
+        width: fit-content;
+    padding:1rem;
+    color: rgb(253, 101, 152);
+font-size: 1.1rem;
+    border-radius: 1rem;
+    background-color: white;
+    border: 1px solid blue;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50% , -50%);
+   .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+gap:0.4rem;
+padding: 0.2rem;
+    border:  0.1rem solid rgb(69, 207, 253);
+    border-radius: 0.5rem;
+    margin-bottom: 0.4rem;
+   
+ input {
+    outline:none;
+border: none;
+ }}
+ button{
+    padding: 0.5rem 1rem;
+    border: none;
+    color:  white;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    background: linear-gradient( to right bottom ,rgb(248, 130, 150) ,rgb(254, 102, 102) , rgb(238, 0, 255));
+ }  
+ }
+}

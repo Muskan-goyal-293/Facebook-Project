@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jsonWebToken = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const userModel = require("../Model/authModel");
-
+const profileModel = require("../Model/profileModel")
 // function
 
 const registerFunc = async (req, res) => {
@@ -37,7 +37,7 @@ const registerFunc = async (req, res) => {
   try {
     //   password hash
     const hashPassword = await bcrypt.hash(password, 10);
-
+    
     //  user create on database
     const user = await userModel.create({
       UserName,
@@ -46,6 +46,14 @@ const registerFunc = async (req, res) => {
       age,
     });
 
+    const profile = await profileModel.create({   user:user._id,
+})
+    
+    user.profile  =profile._id ;
+
+    await user.save()
+    
+    
     //   token create with jwt signature
     const token = jsonWebToken.sign(
       { id: user._id },
@@ -59,7 +67,9 @@ const registerFunc = async (req, res) => {
     //   response send
     return res.status(201).json({
       message: `${UserName} Register Successfully`,
+      user
     });
+
   } catch (err) {
     if (err.name === "ValidationError") {
       return res.status(400).json({
@@ -104,7 +114,7 @@ const loginFunc = async (req, res) => {
   //  if every thing is okay
   // then create token
 
-  const token = jsonWebToken.sing(
+  const token = jsonWebToken.sign(
     {
       id: findUserNameOrEmail.id,
     },

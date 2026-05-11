@@ -22,9 +22,12 @@ password :{
 age:{
     type :Number,
     required : [true ,"This Field Must Be Require"],  
-},
+},    profile:{
+      type : mongoose.Schema.Types.ObjectId,
+      ref : "profile"
+    }
 },{
-    timeseries:true
+    timestamps:true
 })
 
 const userModel = mongoose.model("user" , userSchema)

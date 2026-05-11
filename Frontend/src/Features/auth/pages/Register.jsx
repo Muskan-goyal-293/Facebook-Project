@@ -1,11 +1,13 @@
 //  import module
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../style/authStyle.scss";
 import AuthHook from "../Hook/authHook";
+import Profile from "../../profile/Pages/Profile";
+
 function Register() {
   const { loading, error, result, registerFunction } = AuthHook()
-  
+ const navigate = useNavigate();  
   // need to perform 2-way binding
   const [UserName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,7 +15,7 @@ function Register() {
   const [age, setAge] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // fuction  calling
+  // function  calling
   async function formHandle(e) {
     e.preventDefault();
     const response = await registerFunction(UserName, email, password, age, confirmPassword)
@@ -21,6 +23,7 @@ function Register() {
     if (!response) {
       return;
     }
+  navigate("/profile")
     setUserName("");
     setEmail("");
     setPassword("");

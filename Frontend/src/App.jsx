@@ -1,19 +1,26 @@
-
-import  RouterFun from "./Router.jsx" 
-import  "./style.scss"
-import {AuthContext} from "./Features/auth/Context/AuthContext.jsx"
-import {ProfileContext} from "./Features/profile/Context/ProfileContext.jsx"
+import RouterFun from "./Router.jsx";
+import "./style.scss";
+import { AuthContext } from "./Features/auth/Context/AuthContext.jsx";
+import { ProfileContext } from "./Features/profile/Context/ProfileContext.jsx";
+import { LoginContext } from "./Features/auth/Context/LoginContext.jsx";
+import { CreatePostContext } from "./Features/post/Context/CreatePostContext.jsx";
+import { GetAllPostContext } from "./Features/post/Context/GetAllPostContext.jsx";
 function App() {
   return (
     <>
-    <AuthContext>
-      <ProfileContext>
-  <RouterFun/>
-
-      </ProfileContext>
-    </AuthContext>
-         </>
-  )
+      <AuthContext>
+        <LoginContext>
+          <ProfileContext>
+            <GetAllPostContext>
+            <CreatePostContext>
+            <RouterFun />
+            </CreatePostContext>
+            </GetAllPostContext>
+          </ProfileContext>
+        </LoginContext>
+      </AuthContext>
+    </>
+  );
 }
 
-export default App
+export default App;

@@ -3,10 +3,11 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const cookieParser = require("cookie-parser");
+const cors = require("cors")
 const authRout = require("./Routes/auth.routes");
 const profileRout = require("./Routes/profile.routes");
 const allUser = require("./Routes/allUserGet.routes");
-const cors = require("cors")
+const postRout = require("./Routes/post.routes");
 // Middleware
 app.use(express.json());
 app.use(
@@ -18,7 +19,8 @@ app.use(
 app.use(cookieParser());
 app.use("/api" , authRout);
 app.use("/api" , profileRout);
-app.use("/api" , allUser)
+app.use("/api" , allUser);
+app.use("/api" , postRout );
 
 // Export module
 module.exports ={app , port};

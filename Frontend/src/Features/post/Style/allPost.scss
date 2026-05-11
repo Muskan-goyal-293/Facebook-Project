@@ -1,0 +1,129 @@
+main {
+  height: 95vh;
+  width: 100%;
+  overflow: hidden;
+
+  .allPostWrapper {
+    height: 100vh;
+    width: 100%;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    padding: 1rem 0rem;
+
+    .outer {
+      flex-shrink: 0;
+
+      border-radius: 0.5rem;
+      min-height: 85vh;
+      width: 25vw;
+
+      background-color: aliceblue;
+
+      .top {
+        display: flex;
+        padding: 0.4rem 0.5rem;
+        gap: 1rem;
+        font-size: 1.3rem;
+        text-transform: capitalize;
+
+        .imgDiv {
+          height: 8vh;
+          width: 8vh;
+
+          border: 0.2rem solid transparent;
+
+          background: linear-gradient(
+              to right,
+              rgb(249, 74, 103),
+              rgb(248, 39, 39),
+              rgb(250, 35, 168),
+              rgb(249, 33, 206),
+              rgb(234, 66, 249)
+            )
+            border-box;
+
+          border-radius: 50%;
+          overflow: hidden;
+
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
+        h5 {
+          font-weight: 300;
+        }
+
+        .emoji {
+          font-weight: 500;
+        }
+      }
+
+      .center {
+        height: 60vh;
+        width: 100%;
+
+        box-sizing: border-box;
+
+        border: 0.2rem solid transparent;
+
+        background: linear-gradient(
+            to right bottom,
+            pink,
+            orange,
+            yellow,
+            red,
+            blue,
+            purple
+          )
+          border-box;
+
+        overflow: hidden;
+        border-radius: 0.5rem;
+
+        img {
+          height: 100%;
+          width: 100%;
+
+          object-fit: cover;
+        }
+      }
+
+      .caption {
+        padding: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      .bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 1rem;
+        padding: 0.5rem;
+
+        button {
+          background-color: transparent;
+          border: none;
+          width: 1.5rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

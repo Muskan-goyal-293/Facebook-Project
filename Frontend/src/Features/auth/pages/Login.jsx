@@ -1,34 +1,64 @@
-import "../style/authStyle.scss"
-import {Link} from "react-router-dom"
-import {useState} from "react"
+import "../style/authStyle.scss";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import LoginHook from "../Hook/loginHook";
+import AllPost from "../../post/Pages/AllPost";
+
 function Login() {
-  const [userName , setUserName] = useState("");
-  const[password , setPassword] = useState("")
-  function formHandle(e){
- e.preventDefault();
- console.log(userName , password)
- setUserName("");
- setPassword("")
+  const navigate = useNavigate();
+  const { error, result, loading, loginFunction } = LoginHook();
+  const [UserName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  async function formHandle(e) {
+    e.preventDefault();
+    const response = await loginFunction(UserName, password);
+    if (!response) {
+      return;
+    }
+    setUserName("");
+    setPassword("");
+    navigate("/all-post");
   }
 
-
   return (
-    
-<main>
-  <div className="formWrapper">
-    <form onSubmit={(e)=>{formHandle(e)}} >
-      <input type="text" placeholder='Enter Name/Email' required value={userName} onChange={(e)=>{
-        setUserName(e.target.value)
-      }}/>
-   <input type="password" placeholder='Enter Password' required value={password} onChange={(e)=>{
-    setPassword(e.target.value)
-   }}/>
-   <button>Login</button>
-    </form>
-    <p>If you have already account ? <Link className="link" to="/">register</Link></p>
-  </div>
-</main>
-  )
+    <main>
+      <div className="formWrapper">
+        {error && <p>{error}</p>}
+        {result && <p>{result}</p>}
+        <form
+          onSubmit={(e) => {
+            formHandle(e);
+          }}
+        >
+          <input
+            type="text"
+            placeholder="Enter Name/Email"
+            required
+            value={UserName}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Enter Password"
+            required
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <button>{loading ? "loading..." : "Login"}</button>
+        </form>
+        <p>
+          If you have already account ?{" "}
+          <Link className="link" to="/">
+            register
+          </Link>
+        </p>
+      </div>
+    </main>
+  );
 }
 
-export default Login
+export default Login;

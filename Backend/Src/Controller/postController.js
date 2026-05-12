@@ -22,7 +22,7 @@ const postFunction =async (req, res) => {
 
         fileName: req.file.originalname,
 
-        folder: "Instagram_Project_folder",
+        folder: "SocialMedia_Project_folder",
       });
 
       const post = await postModel.create({

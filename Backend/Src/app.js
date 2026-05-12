@@ -8,6 +8,7 @@ const authRout = require("./Routes/auth.routes");
 const profileRout = require("./Routes/profile.routes");
 const allUser = require("./Routes/allUserGet.routes");
 const postRout = require("./Routes/post.routes");
+const likeRout = require("./Routes/like.routes");
 // Middleware
 app.use(express.json());
 app.use(
@@ -21,6 +22,7 @@ app.use("/api" , authRout);
 app.use("/api" , profileRout);
 app.use("/api" , allUser);
 app.use("/api" , postRout );
+app.use("/api" , likeRout);
 
 // Export module
 module.exports ={app , port};

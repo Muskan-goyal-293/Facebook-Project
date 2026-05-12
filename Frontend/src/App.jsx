@@ -6,6 +6,7 @@ import { LoginContext } from "./Features/auth/Context/LoginContext.jsx";
 import { CreatePostContext } from "./Features/post/Context/CreatePostContext.jsx";
 import { GetAllPostContext } from "./Features/post/Context/GetAllPostContext.jsx";
 import { LikeAndDislikeContext } from "./Features/post/Context/LikeAndDislikeContext.jsx";
+import { AllUserContext } from "./Features/auth/Context/allUserContext.jsx";
 function App() {
   return (
     <>
@@ -13,11 +14,13 @@ function App() {
         <LoginContext>
           <ProfileContext>
             <GetAllPostContext>
-            <CreatePostContext>
-              <LikeAndDislikeContext>
-            <RouterFun />
-              </LikeAndDislikeContext>
-            </CreatePostContext>
+              <CreatePostContext>
+                <LikeAndDislikeContext>
+                  <AllUserContext>
+                    <RouterFun />
+                  </AllUserContext>
+                </LikeAndDislikeContext>
+              </CreatePostContext>
             </GetAllPostContext>
           </ProfileContext>
         </LoginContext>

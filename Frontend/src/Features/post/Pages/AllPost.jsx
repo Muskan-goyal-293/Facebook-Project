@@ -62,6 +62,12 @@ function AllPost() {
         >
           Explore User
         </button>
+
+        <button onClick={()=>{
+          navigate("/detail")
+        }} className="profilePage">
+          Profile
+        </button>
       </nav>
 
       <div className="allPostWrapper">

@@ -11,9 +11,9 @@ main {
       display: flex ;
       align-items: center;
       justify-content: space-between;
-      gap:6.5rem;
+      gap:1rem;
       
-    .cretePost, .exploreUser{
+    .cretePost, .exploreUser , .profilePage{
       background: linear-gradient(pink , rgb(254, 141, 160) , rgb(252, 82, 110));
       border : none ;
       border-radius:  0.3rem;

@@ -1,8 +1,10 @@
 import "../style/alluserStyle.scss";
 import AllUserHook from "../Hook/allUserHook";
 import { useEffect } from "react";
+import FollowHook from "../Hook/FollowHook";
 function AllUser() {
   const { error, loading, allUser, allUserGetFun } = AllUserHook();
+ const {err , load , result , followFun} = FollowHook()
   async function getData() {
     const res = await allUserGetFun();
     if (!res) {
@@ -14,6 +16,14 @@ function AllUser() {
     getData();
   }, []);
 
+
+async  function followUserFun(id){
+  const response = await  followFun(id)
+   if(!response){
+    console.log(err)
+    return; 
+   }
+} 
 
   return (
     <main>
@@ -29,7 +39,9 @@ function AllUser() {
                 </div>
                 <h5>{val.UserName}</h5>
               </div>
-              <button >Follow</button>
+              <button onClick={()=>{
+                followUserFun(val._id)
+              }} >{result? result : "Follow" }</button>
             </div>
           );
         })}

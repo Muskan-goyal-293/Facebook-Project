@@ -5,6 +5,7 @@ import Profile from "./Features/profile/Pages/Profile";
 import CreatePost from "./Features/post/Pages/CreatePost";
 import AllPost from "./Features/post/Pages/AllPost";
 import AllUser from "./Features/auth/pages/AllUser";
+import Detail from "./Features/profile/Pages/Detail";
 function RouterFun() {
   return (
     <div>     
@@ -15,6 +16,7 @@ function RouterFun() {
 <Route path="/all-post" element={<AllPost/>}  />
 <Route path="/create-post" element={<CreatePost/>}/>
 <Route path="/all-user" element={<AllUser/>}/>
+<Route path="/detail" element={<Detail/>}></Route>
 </Routes>
 </div>
   )
